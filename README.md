@@ -150,7 +150,7 @@ Route protection is handled in `src/middleware.ts`. Add paths to the `PROTECTED_
 
 ## Deployment
 
-This project deploys to [Cloudflare Workers](https://workers.cloudflare.com/). **Auto-deploy on merge to `master`** is configured in the Cloudflare dashboard (Workers Builds), not via GitHub Actions deploy.
+This project deploys to [Cloudflare Workers](https://workers.cloudflare.com/). **Auto-deploy on merge to `main`** is configured in the Cloudflare dashboard (Workers Builds), not via GitHub Actions deploy.
 
 See [docs/DEPLOY.md](docs/DEPLOY.md) for the full checklist. Quick manual deploy:
 
@@ -162,7 +162,7 @@ Set `SUPABASE_URL` and `SUPABASE_KEY` in the Cloudflare dashboard (Workers Build
 
 ## CI
 
-GitHub Actions runs lint + build on every push and PR to `master`. Configure `SUPABASE_URL` and `SUPABASE_KEY` as repository secrets in GitHub for the build step.
+GitHub Actions runs lint + build on every push and PR to `main`. Configure `SUPABASE_URL` and `SUPABASE_KEY` as repository secrets in GitHub for the build step.
 
 ## License
 

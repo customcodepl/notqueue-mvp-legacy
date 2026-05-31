@@ -31,13 +31,17 @@ npx wrangler secret put SUPABASE_URL
 npx wrangler secret put SUPABASE_KEY
 ```
 
-## Auto-deploy on merge to `master`
+## Production URL
+
+After manual deploy: **https://notqueue.notqueue.workers.dev**
+
+## Auto-deploy on merge to `main`
 
 1. Open [Cloudflare dashboard](https://dash.cloudflare.com/) → **Workers & Pages** → **Create application** → **Import a repository**.
-2. Select this GitHub repo.
+2. Select this GitHub repo (`customcodepl/notqueue`).
 3. Configure:
 
-   - **Production branch:** `master`
+   - **Production branch:** `main`
    - **Build command:** `npm ci && npx astro sync && npm run build`
    - **Deploy command:** `npx wrangler deploy`
    - **Node.js:** 22

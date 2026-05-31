@@ -38,4 +38,4 @@ Node.js v22.14.0 (@.nvmrc). Env files, local Supabase, Cloudflare secrets, deplo
 
 ## CI
 
-@.github/workflows/ci.yml — lint + build on push/PR to `master`; requires `SUPABASE_URL` and `SUPABASE_KEY` repository secrets.
+@.github/workflows/ci.yml — lint + build on push/PR to `main`; requires `SUPABASE_URL` and `SUPABASE_KEY` repository secrets.

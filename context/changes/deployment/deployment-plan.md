@@ -11,21 +11,22 @@
 - [x] `wrangler.jsonc`: nazwa `not-queue`, flaga `disable_nodejs_process_v2`
 - [x] Skrypt `npm run deploy` → `astro build && wrangler deploy`
 - [x] Lokalny build OK: `SUPABASE_URL=… SUPABASE_KEY=… npm run build`
-- [ ] Opcjonalnie pierwszy deploy z maszyny: `npm run deploy` (wymaga `wrangler login`)
+- [x] Pierwszy deploy z maszyny: `npm run deploy` (konto `customcode`)
+- [x] Sekrety produkcyjne: `npx wrangler secret bulk .dev.vars`
+- [x] URL produkcyjny: https://notqueue.notqueue.workers.dev
 
 ## Faza 1 — Konto Cloudflare i Supabase
 
-- [ ] Konto Cloudflare + dostęp do Workers & Pages
-- [ ] Projekt Supabase (cloud lub lokalny na dev) — skopiuj `SUPABASE_URL` i anon `SUPABASE_KEY`
-- [ ] Lokalnie: `cp .env.example .dev.vars` i uzupełnij wartości
+- [x] Konto Cloudflare + Wrangler OAuth (`customcode`)
+- [x] `.dev.vars` z `SUPABASE_URL` / `SUPABASE_KEY`
 
-## Faza 2 — Workers Builds (auto-deploy z `master`)
+## Faza 2 — Workers Builds (auto-deploy z `main`)
 
 W dashboardzie: **Workers & Pages → Create application → Import a repository**.
 
 | Ustawienie | Wartość |
 |---|---|
-| Production branch | `master` (zgodnie z `.github/workflows/ci.yml`) |
+| Production branch | `main` (zgodnie z `.github/workflows/ci.yml`) |
 | Build command | `npm ci && npx astro sync && npm run build` |
 | Deploy command | `npx wrangler deploy` |
 | Node.js version | 22 |
