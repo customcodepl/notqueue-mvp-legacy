@@ -280,8 +280,8 @@ Send staff to the queue dashboard immediately after sign-in.
 
 #### Automated
 
-- [x] 3.1 `npm run lint` passes
+- [x] 3.1 `npm run lint` passes — 42fd616
 
 #### Manual
 
-- [x] 3.2 Sign-in lands on `/dashboard`; unauthenticated dashboard access still gated
+- [x] 3.2 Sign-in lands on `/dashboard`; unauthenticated dashboard access still gated — 42fd616

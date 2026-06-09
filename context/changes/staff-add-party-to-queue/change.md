@@ -1,7 +1,7 @@
 ---
 change_id: staff-add-party-to-queue
 title: Staff add party to queue (S-01)
-status: implementing
+status: implemented
 created: 2026-06-09
 updated: 2026-06-09
 archived_at: null
