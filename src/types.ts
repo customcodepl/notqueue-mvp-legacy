@@ -43,3 +43,16 @@ export interface GuestPartyView {
   menu_link: string | null;
   info_text: string | null;
 }
+
+export interface CreatePartyInput {
+  display_name: string;
+  party_size: number;
+}
+
+export interface CreatePartyResponse {
+  party: Party;
+}
+
+export interface PartyListResponse {
+  parties: Party[];
+}
