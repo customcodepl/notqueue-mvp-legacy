@@ -269,19 +269,19 @@ Send staff to the queue dashboard immediately after sign-in.
 
 #### Automated
 
-- [x] 2.1 `npx astro sync && npm run lint` passes
-- [x] 2.2 `npm run build` passes
+- [x] 2.1 `npx astro sync && npm run lint` passes — f86bdb7
+- [x] 2.2 `npm run build` passes — f86bdb7
 
 #### Manual
 
-- [x] 2.3 Dashboard add form + waiting list works end-to-end without full page reload
+- [x] 2.3 Dashboard add form + waiting list works end-to-end without full page reload — f86bdb7
 
 ### Phase 3: Auth Redirect Polish
 
 #### Automated
 
-- [ ] 3.1 `npm run lint` passes
+- [x] 3.1 `npm run lint` passes
 
 #### Manual
 
-- [ ] 3.2 Sign-in lands on `/dashboard`; unauthenticated dashboard access still gated
+- [x] 3.2 Sign-in lands on `/dashboard`; unauthenticated dashboard access still gated
