@@ -257,24 +257,24 @@ Send staff to the queue dashboard immediately after sign-in.
 
 #### Automated
 
-- [x] 1.1 `npm install` completes; `package-lock.json` includes `zod`
-- [x] 1.2 `npx astro sync && npm run lint` passes
-- [x] 1.3 `npm run build` passes with `SUPABASE_URL` and `SUPABASE_KEY` set
+- [x] 1.1 `npm install` completes; `package-lock.json` includes `zod` — 9f036e6
+- [x] 1.2 `npx astro sync && npm run lint` passes — 9f036e6
+- [x] 1.3 `npm run build` passes with `SUPABASE_URL` and `SUPABASE_KEY` set — 9f036e6
 
 #### Manual
 
-- [x] 1.4 Unauthenticated POST returns 401; authenticated POST/GET behave per success criteria
+- [x] 1.4 Unauthenticated POST returns 401; authenticated POST/GET behave per success criteria — 9f036e6
 
 ### Phase 2: Dashboard Queue UI
 
 #### Automated
 
-- [ ] 2.1 `npx astro sync && npm run lint` passes
-- [ ] 2.2 `npm run build` passes
+- [x] 2.1 `npx astro sync && npm run lint` passes
+- [x] 2.2 `npm run build` passes
 
 #### Manual
 
-- [ ] 2.3 Dashboard add form + waiting list works end-to-end without full page reload
+- [x] 2.3 Dashboard add form + waiting list works end-to-end without full page reload
 
 ### Phase 3: Auth Redirect Polish
 
