@@ -268,24 +268,24 @@ Expose typed contracts for downstream slices and provide local dev fixtures for 
 
 #### Automated
 
-- [x] 2.1 `npx supabase db reset` applies both migrations cleanly
-- [x] 2.2 `npx supabase db lint` passes if available
+- [x] 2.1 `npx supabase db reset` applies both migrations cleanly — 1d8cb6c
+- [x] 2.2 `npx supabase db lint` passes if available — 1d8cb6c
 
 #### Manual
 
-- [x] 2.3 Anon SELECT on parties returns zero rows without guest context
-- [x] 2.4 get_guest_party_view with seed token returns party JSON
-- [x] 2.5 Invalid/revoked token rejected; authenticated staff can SELECT all parties
+- [x] 2.3 Anon SELECT on parties returns zero rows without guest context — 1d8cb6c
+- [x] 2.4 get_guest_party_view with seed token returns party JSON — 1d8cb6c
+- [x] 2.5 Invalid/revoked token rejected; authenticated staff can SELECT all parties — 1d8cb6c
 
 ### Phase 3: TypeScript Types and Seed Data
 
 #### Automated
 
-- [ ] 3.1 `npx supabase db reset` loads seed without errors
-- [ ] 3.2 `npx astro sync && npm run lint` passes
-- [ ] 3.3 `SUPABASE_URL=… SUPABASE_KEY=… npm run build` passes
+- [x] 3.1 `npx supabase db reset` loads seed without errors
+- [x] 3.2 `npx astro sync && npm run lint` passes
+- [x] 3.3 `SUPABASE_URL=… SUPABASE_KEY=… npm run build` passes
 
 #### Manual
 
-- [ ] 3.4 get_guest_party_view returns seeded Smith party after reset
-- [ ] 3.5 src/types.ts fields match Studio column list
+- [x] 3.4 get_guest_party_view returns seeded Smith party after reset
+- [x] 3.5 src/types.ts fields match Studio column list
