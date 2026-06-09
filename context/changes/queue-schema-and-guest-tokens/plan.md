@@ -281,11 +281,11 @@ Expose typed contracts for downstream slices and provide local dev fixtures for 
 
 #### Automated
 
-- [x] 3.1 `npx supabase db reset` loads seed without errors
-- [x] 3.2 `npx astro sync && npm run lint` passes
-- [x] 3.3 `SUPABASE_URL=… SUPABASE_KEY=… npm run build` passes
+- [x] 3.1 `npx supabase db reset` loads seed without errors — 01c3e7e
+- [x] 3.2 `npx astro sync && npm run lint` passes — 01c3e7e
+- [x] 3.3 `SUPABASE_URL=… SUPABASE_KEY=… npm run build` passes — 01c3e7e
 
 #### Manual
 
-- [x] 3.4 get_guest_party_view returns seeded Smith party after reset
-- [x] 3.5 src/types.ts fields match Studio column list
+- [x] 3.4 get_guest_party_view returns seeded Smith party after reset — 01c3e7e
+- [x] 3.5 src/types.ts fields match Studio column list — 01c3e7e
