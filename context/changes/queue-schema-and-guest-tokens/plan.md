@@ -256,26 +256,26 @@ Expose typed contracts for downstream slices and provide local dev fixtures for 
 
 #### Automated
 
-- [x] 1.1 `npx supabase db reset` completes without SQL errors
-- [x] 1.2 Local psql shows venues, venue_settings, parties, guest_tokens tables
-- [x] 1.3 party_status enum exists with waiting, ready, seated values
+- [x] 1.1 `npx supabase db reset` completes without SQL errors — 2d5443e
+- [x] 1.2 Local psql shows venues, venue_settings, parties, guest_tokens tables — 2d5443e
+- [x] 1.3 party_status enum exists with waiting, ready, seated values — 2d5443e
 
 #### Manual
 
-- [x] 1.4 FK ON DELETE behavior and supabase_realtime publication on parties verified
+- [x] 1.4 FK ON DELETE behavior and supabase_realtime publication on parties verified — 2d5443e
 
 ### Phase 2: RLS and Guest Context
 
 #### Automated
 
-- [ ] 2.1 `npx supabase db reset` applies both migrations cleanly
-- [ ] 2.2 `npx supabase db lint` passes if available
+- [x] 2.1 `npx supabase db reset` applies both migrations cleanly
+- [x] 2.2 `npx supabase db lint` passes if available
 
 #### Manual
 
-- [ ] 2.3 Anon SELECT on parties returns zero rows without guest context
-- [ ] 2.4 get_guest_party_view with seed token returns party JSON
-- [ ] 2.5 Invalid/revoked token rejected; authenticated staff can SELECT all parties
+- [x] 2.3 Anon SELECT on parties returns zero rows without guest context
+- [x] 2.4 get_guest_party_view with seed token returns party JSON
+- [x] 2.5 Invalid/revoked token rejected; authenticated staff can SELECT all parties
 
 ### Phase 3: TypeScript Types and Seed Data
 
