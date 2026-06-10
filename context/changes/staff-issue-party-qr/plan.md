@@ -295,20 +295,20 @@ Public page at `/guest/[token]` so scanned QR resolves; validates token and show
 
 #### Automated
 
-- [x] 2.1 `npx astro sync && npm run lint` passes
-- [x] 2.2 `npm run build` passes
+- [x] 2.1 `npx astro sync && npm run lint` passes — 6c921c9
+- [x] 2.2 `npm run build` passes — 6c921c9
 
 #### Manual
 
-- [x] 2.3 Dashboard QR modal: issue, copy link, reissue end-to-end
+- [x] 2.3 Dashboard QR modal: issue, copy link, reissue end-to-end — 6c921c9
 
 ### Phase 3: Guest Stub Page
 
 #### Automated
 
-- [ ] 3.1 `npx astro sync && npm run lint` passes
-- [ ] 3.2 `npm run build` passes
+- [x] 3.1 `npx astro sync && npm run lint` passes
+- [x] 3.2 `npm run build` passes
 
 #### Manual
 
-- [ ] 3.3 Guest stub loads for valid token; invalid/revoked shows friendly error
+- [x] 3.3 Guest stub loads for valid token; invalid/revoked shows friendly error
