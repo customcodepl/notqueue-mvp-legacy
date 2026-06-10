@@ -1,6 +1,6 @@
 import type { APIRoute } from "astro";
 import { z } from "zod";
-import { createClient } from "@/lib/supabase";
+import { jsonResponse, requireStaffUser } from "@/lib/api";
 import { VenueNotFoundError, createParty, getDefaultVenueId, listWaitingParties } from "@/lib/services/parties";
 import type { CreatePartyResponse, PartyListResponse } from "@/types";
 
@@ -10,30 +10,6 @@ const createPartySchema = z.object({
   display_name: z.string().trim().min(1).max(100),
   party_size: z.number().int().min(1).max(99),
 });
-
-function jsonResponse(status: number, body: unknown): Response {
-  return new Response(JSON.stringify(body), {
-    status,
-    headers: { "Content-Type": "application/json" },
-  });
-}
-
-async function requireStaffUser(context: Parameters<APIRoute>[0]) {
-  const supabase = createClient(context.request.headers, context.cookies);
-  if (!supabase) {
-    return { error: jsonResponse(503, { error: "Supabase is not configured" }) } as const;
-  }
-
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-
-  if (!user) {
-    return { error: jsonResponse(401, { error: "Unauthorized" }) } as const;
-  }
-
-  return { supabase, user } as const;
-}
 
 export const GET: APIRoute = async (context) => {
   const auth = await requireStaffUser(context);

@@ -56,3 +56,8 @@ export interface CreatePartyResponse {
 export interface PartyListResponse {
   parties: Party[];
 }
+
+export interface GuestTokenResponse {
+  token: string;
+  guest_url: string;
+}
