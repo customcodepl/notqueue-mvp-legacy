@@ -3,7 +3,7 @@ project: NotQueue
 version: 1
 status: draft
 created: 2026-05-31
-updated: 2026-05-31
+updated: 2026-06-10
 prd_version: 1
 main_goal: speed
 top_blocker: time
@@ -31,7 +31,7 @@ Sequencing biased toward **speed to launch** (3 weeks, after-hours only): data a
 
 | ID | Change ID | Outcome (user can …) | Prerequisites | PRD refs | Status |
 |---|---|---|---|---|---|
-| F-01 | queue-schema-and-guest-tokens | (foundation) queue model, guest tokens, and RLS in Supabase | — | Business Logic, Access Control, NFR privacy | ready |
+| F-01 | queue-schema-and-guest-tokens | (foundation) queue model, guest tokens, and RLS in Supabase | — | Business Logic, Access Control, NFR privacy | done |
 | S-01 | staff-add-party-to-queue | sign in and add a party to the queue | F-01 | FR-001, FR-002, US-01 | proposed |
 | S-02 | staff-issue-party-qr | issue a QR or link for one party | S-01 | FR-003, US-01 | proposed |
 | S-03 | staff-advance-and-ready-queue | advance the queue, set ETA, mark table ready | S-01 | FR-004, FR-005, FR-006, US-01 | proposed |
@@ -72,7 +72,7 @@ Codebase state as of **2026-05-31** (auto-research + user-confirmed). Foundation
 - **Unknowns:**
   - Guest token as separate table vs. signed URL — Owner: team. Block: yes (blocks planning S-05).
 - **Risk:** Without this there are no vertical product slices; under `speed` we do not expand the model beyond must-have FRs.
-- **Status:** ready
+- **Status:** done
 
 ## Slices
 
@@ -161,5 +161,7 @@ Codebase state as of **2026-05-31** (auto-research + user-confirmed). Foundation
 - **Expanded observability (Sentry, alerts)** — Why parked: `speed` + partial baseline is enough for MVP; keep infra light.
 
 ## Done
+
+- **F-01: (foundation) Supabase has queue tables (party, position, ETA, ready), venue settings, and guest tokens with RLS: staff manage; guests read only their party.** — Archived 2026-06-10 → `context/archive/2026-06-09-queue-schema-and-guest-tokens/`. Lesson: —.
 
 <!-- /10x-archive appends here when a Change ID is archived -->
