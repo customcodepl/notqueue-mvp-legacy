@@ -1,7 +1,7 @@
 ---
 change_id: staff-issue-party-qr
 title: Staff issue party QR (S-02)
-status: implementing
+status: implemented
 created: 2026-06-09
 updated: 2026-06-10
 archived_at: null

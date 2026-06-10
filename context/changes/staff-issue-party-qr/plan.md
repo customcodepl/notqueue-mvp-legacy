@@ -306,9 +306,9 @@ Public page at `/guest/[token]` so scanned QR resolves; validates token and show
 
 #### Automated
 
-- [x] 3.1 `npx astro sync && npm run lint` passes
-- [x] 3.2 `npm run build` passes
+- [x] 3.1 `npx astro sync && npm run lint` passes — 6467ce6
+- [x] 3.2 `npm run build` passes — 6467ce6
 
 #### Manual
 
-- [x] 3.3 Guest stub loads for valid token; invalid/revoked shows friendly error
+- [x] 3.3 Guest stub loads for valid token; invalid/revoked shows friendly error — 6467ce6
