@@ -284,23 +284,23 @@ Public page at `/guest/[token]` so scanned QR resolves; validates token and show
 
 #### Automated
 
-- [x] 1.1 `npx astro sync && npm run lint` passes
-- [x] 1.2 `npm run build` passes with `SUPABASE_URL` and `SUPABASE_KEY` set
+- [x] 1.1 `npx astro sync && npm run lint` passes — 7e4e2f0
+- [x] 1.2 `npm run build` passes with `SUPABASE_URL` and `SUPABASE_KEY` set — 7e4e2f0
 
 #### Manual
 
-- [x] 1.3 Guest-token GET/POST behave per success criteria (auth, issue, reissue, revoke)
+- [x] 1.3 Guest-token GET/POST behave per success criteria (auth, issue, reissue, revoke) — 7e4e2f0
 
 ### Phase 2: Dashboard QR Modal
 
 #### Automated
 
-- [ ] 2.1 `npx astro sync && npm run lint` passes
-- [ ] 2.2 `npm run build` passes
+- [x] 2.1 `npx astro sync && npm run lint` passes
+- [x] 2.2 `npm run build` passes
 
 #### Manual
 
-- [ ] 2.3 Dashboard QR modal: issue, copy link, reissue end-to-end
+- [x] 2.3 Dashboard QR modal: issue, copy link, reissue end-to-end
 
 ### Phase 3: Guest Stub Page
 
