@@ -226,9 +226,9 @@ None. Existing seed and RLS sufficient.
 
 #### Automated
 
-- [x] 2.1 `npx astro sync && npm run lint` passes
-- [x] 2.2 `npm run build` passes
+- [x] 2.1 `npx astro sync && npm run lint` passes — 2295089
+- [x] 2.2 `npm run build` passes — 2295089
 
 #### Manual
 
-- [x] 2.3 Dashboard save flow and guest page reflect settings (including clear and invalid URL)
+- [x] 2.3 Dashboard save flow and guest page reflect settings (including clear and invalid URL) — 2295089
