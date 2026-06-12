@@ -1,7 +1,13 @@
 import type { APIRoute } from "astro";
 import { z } from "zod";
 import { jsonResponse, requireStaffUser } from "@/lib/api";
-import { VenueNotFoundError, createParty, getDefaultVenueId, listWaitingParties } from "@/lib/services/parties";
+import {
+  VenueNotFoundError,
+  createParty,
+  getDefaultVenueId,
+  listReadyParties,
+  listWaitingParties,
+} from "@/lib/services/parties";
 import type { CreatePartyResponse, PartyListResponse } from "@/types";
 
 export const prerender = false;
@@ -19,8 +25,11 @@ export const GET: APIRoute = async (context) => {
 
   try {
     const venueId = await getDefaultVenueId(auth.supabase);
-    const parties = await listWaitingParties(auth.supabase, venueId);
-    const body: PartyListResponse = { parties };
+    const [waiting, ready] = await Promise.all([
+      listWaitingParties(auth.supabase, venueId),
+      listReadyParties(auth.supabase, venueId),
+    ]);
+    const body: PartyListResponse = { waiting, ready };
     return jsonResponse(200, body);
   } catch (err) {
     if (err instanceof VenueNotFoundError) {

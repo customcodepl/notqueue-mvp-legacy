@@ -375,25 +375,25 @@ No database migration required. F-01 schema and RLS are sufficient. Deploy is co
 
 #### Automated
 
-- [x] 1.1 `npx astro sync && npm run lint` passes
-- [x] 1.2 `npm run build` passes with `SUPABASE_URL` and `SUPABASE_KEY` set
+- [x] 1.1 `npx astro sync && npm run lint` passes — a23c918
+- [x] 1.2 `npm run build` passes with `SUPABASE_URL` and `SUPABASE_KEY` set — a23c918
 
 #### Manual
 
-- [x] 1.3 Unauthenticated and empty-queue API error cases verified
-- [x] 1.4 Advance, ETA, ready, and seat mutations verified via API
+- [x] 1.3 Unauthenticated and empty-queue API error cases verified — a23c918
+- [x] 1.4 Advance, ETA, ready, and seat mutations verified via API — a23c918
 
 ### Phase 2: List API & Hook
 
 #### Automated
 
-- [ ] 2.1 `npx astro sync && npm run lint` passes
-- [ ] 2.2 `npm run build` passes
+- [x] 2.1 `npx astro sync && npm run lint` passes
+- [x] 2.2 `npm run build` passes
 
 #### Manual
 
-- [ ] 2.3 `GET /api/parties` returns waiting and ready sections correctly
-- [ ] 2.4 Hook refresh reflects party movement between sections
+- [x] 2.3 `GET /api/parties` returns waiting and ready sections correctly
+- [x] 2.4 Hook refresh reflects party movement between sections
 
 ### Phase 3: Dashboard UI
 

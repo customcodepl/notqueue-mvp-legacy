@@ -153,6 +153,21 @@ export async function listWaitingParties(supabase: SupabaseClient, venueId: stri
   return response.data as Party[];
 }
 
+export async function listReadyParties(supabase: SupabaseClient, venueId: string): Promise<Party[]> {
+  const response = await supabase
+    .from("parties")
+    .select()
+    .eq("venue_id", venueId)
+    .eq("status", "ready")
+    .order("updated_at", { ascending: false });
+
+  if (response.error) {
+    throw response.error;
+  }
+
+  return response.data as Party[];
+}
+
 export async function advanceQueue(supabase: SupabaseClient): Promise<Party> {
   const venueId = await getDefaultVenueId(supabase);
 

@@ -9,7 +9,7 @@ import type { Party } from "@/types";
 import { cn } from "@/lib/utils";
 
 export default function QueueDashboard() {
-  const { parties, loading, error, addParty } = useQueueParties();
+  const { waiting, loading, error, addParty } = useQueueParties();
   const [displayName, setDisplayName] = useState("");
   const [partySize, setPartySize] = useState("");
   const [fieldErrors, setFieldErrors] = useState<{ displayName?: string; partySize?: string }>({});
@@ -140,13 +140,13 @@ export default function QueueDashboard() {
           {loading && <p className="text-sm text-blue-100/60">Loading queue…</p>}
           <ServerError message={!loading ? error : null} />
 
-          {!loading && !error && parties.length === 0 && (
+          {!loading && !error && waiting.length === 0 && (
             <p className="text-sm text-blue-100/60">No parties waiting.</p>
           )}
 
-          {!loading && !error && parties.length > 0 && (
+          {!loading && !error && waiting.length > 0 && (
             <ul className="space-y-2">
-              {parties.map((party) => (
+              {waiting.map((party) => (
                 <li
                   key={party.id}
                   className="flex items-center justify-between rounded-lg border border-white/10 bg-white/10 px-4 py-3"

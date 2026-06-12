@@ -54,7 +54,8 @@ export interface CreatePartyResponse {
 }
 
 export interface PartyListResponse {
-  parties: Party[];
+  waiting: Party[];
+  ready: Party[];
 }
 
 export interface UpdatePartyEtaInput {
