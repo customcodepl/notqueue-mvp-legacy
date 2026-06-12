@@ -271,21 +271,21 @@ No database migration. Deploy requires adding `PUBLIC_SUPABASE_URL` and `PUBLIC_
 
 #### Automated
 
-- [x] 2.1 `npx astro sync && npm run lint` passes
-- [x] 2.2 `npm run build` passes
+- [x] 2.1 `npx astro sync && npm run lint` passes — 0a4b523
+- [x] 2.2 `npm run build` passes — 0a4b523
 
 #### Manual
 
-- [ ] 2.3 Waiting, ready, and seated layouts verified (static or Storybook-less manual)
+- [x] 2.3 Waiting, ready, and seated layouts verified (static or Storybook-less manual) — 0a4b523
 
 ### Phase 3: Astro Page Integration
 
 #### Automated
 
-- [x] 3.1 `npx astro sync && npm run lint` passes
-- [x] 3.2 `npm run build` passes
+- [x] 3.1 `npx astro sync && npm run lint` passes — 0a4b523
+- [x] 3.2 `npm run build` passes — 0a4b523
 
 #### Manual
 
-- [ ] 3.3 End-to-end guest + staff flow: poll updates, ready hero, seated, visibility pause
-- [ ] 3.4 Revoked token and venue info display verified
+- [x] 3.3 End-to-end guest + staff flow: poll updates, ready hero, seated, visibility pause — 0a4b523
+- [x] 3.4 Revoked token and venue info display verified — 0a4b523

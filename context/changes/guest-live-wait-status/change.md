@@ -1,9 +1,9 @@
 ---
 change_id: guest-live-wait-status
 title: Guest live wait status (S-05)
-status: implementing
+status: implemented
 created: 2026-06-12
-updated: 2026-06-12
+updated: 2026-06-10
 ---
 
 ## Notes
