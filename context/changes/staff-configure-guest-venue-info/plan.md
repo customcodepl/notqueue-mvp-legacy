@@ -215,20 +215,20 @@ None. Existing seed and RLS sufficient.
 
 #### Automated
 
-- [x] 1.1 `npx astro sync && npm run lint` passes
-- [x] 1.2 `npm run build` passes
+- [x] 1.1 `npx astro sync && npm run lint` passes — ffb5c6d
+- [x] 1.2 `npm run build` passes — ffb5c6d
 
 #### Manual
 
-- [x] 1.3 GET/PATCH /api/venue/settings verified (seed read, upsert, validation, clear)
+- [x] 1.3 GET/PATCH /api/venue/settings verified (seed read, upsert, validation, clear) — ffb5c6d
 
 ### Phase 2: Dashboard Editor
 
 #### Automated
 
-- [ ] 2.1 `npx astro sync && npm run lint` passes
-- [ ] 2.2 `npm run build` passes
+- [x] 2.1 `npx astro sync && npm run lint` passes
+- [x] 2.2 `npm run build` passes
 
 #### Manual
 
-- [ ] 2.3 Dashboard save flow and guest page reflect settings (including clear and invalid URL)
+- [x] 2.3 Dashboard save flow and guest page reflect settings (including clear and invalid URL)

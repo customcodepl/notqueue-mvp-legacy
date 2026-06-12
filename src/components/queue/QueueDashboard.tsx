@@ -5,6 +5,7 @@ import { ServerError } from "@/components/auth/ServerError";
 import { Button } from "@/components/ui/button";
 import { useQueueParties } from "@/components/hooks/useQueueParties";
 import PartyQrModal from "@/components/queue/PartyQrModal";
+import VenueSettingsCard from "@/components/queue/VenueSettingsCard";
 import type { Party } from "@/types";
 import { cn } from "@/lib/utils";
 
@@ -206,6 +207,8 @@ export default function QueueDashboard() {
       )}
 
       <div className="space-y-8">
+        <VenueSettingsCard />
+
         <section className="rounded-2xl border border-white/10 bg-white/5 p-6">
           <h2 className="mb-4 text-lg font-semibold text-white">Add to queue</h2>
           <form className="space-y-4" onSubmit={handleSubmit} noValidate>
