@@ -1,7 +1,7 @@
 ---
 change_id: staff-configure-guest-venue-info
 title: Staff configure guest venue info (S-04)
-status: implemented
+status: impl_reviewed
 created: 2026-06-12
 updated: 2026-06-12
 ---
