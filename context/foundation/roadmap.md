@@ -3,7 +3,7 @@ project: NotQueue
 version: 1
 status: draft
 created: 2026-05-31
-updated: 2026-06-10
+updated: 2026-06-12
 prd_version: 1
 main_goal: speed
 top_blocker: time
@@ -34,7 +34,7 @@ Sequencing biased toward **speed to launch** (3 weeks, after-hours only): data a
 | F-01 | queue-schema-and-guest-tokens | (foundation) queue model, guest tokens, and RLS in Supabase | — | Business Logic, Access Control, NFR privacy | done |
 | S-01 | staff-add-party-to-queue | sign in and add a party to the queue | F-01 | FR-001, FR-002, US-01 | done |
 | S-02 | staff-issue-party-qr | issue a QR or link for one party | S-01 | FR-003, US-01 | done |
-| S-03 | staff-advance-and-ready-queue | advance the queue, set ETA, mark table ready | S-01 | FR-004, FR-005, FR-006, US-01 | proposed |
+| S-03 | staff-advance-and-ready-queue | advance the queue, set ETA, mark table ready | S-01 | FR-004, FR-005, FR-006, US-01 | done |
 | S-04 | staff-configure-guest-venue-info | configure optional info on the guest status page | F-01 | FR-007, FR-012 | proposed |
 | S-05 | guest-live-wait-status | open the status page via QR and see live status + ready | F-01, S-01, S-02, S-03, S-04 | FR-008–FR-013, US-01 | proposed |
 
@@ -110,7 +110,7 @@ Codebase state as of **2026-05-31** (auto-research + user-confirmed). Foundation
 - **Blockers:** —
 - **Unknowns:** —
 - **Risk:** US-01 requires live updates when staff act — this slice supplies events for Realtime.
-- **Status:** proposed
+- **Status:** done
 
 ### S-04: Staff configure guest venue info
 
@@ -165,5 +165,6 @@ Codebase state as of **2026-05-31** (auto-research + user-confirmed). Foundation
 - **F-01: (foundation) Supabase has queue tables (party, position, ETA, ready), venue settings, and guest tokens with RLS: staff manage; guests read only their party.** — Archived 2026-06-10 → `context/archive/2026-06-09-queue-schema-and-guest-tokens/`. Lesson: —.
 - **S-01: Staff can sign in and add a waiting party (e.g. name, party size) to the restaurant queue.** — Archived 2026-06-10 → `context/archive/2026-06-09-staff-add-party-to-queue/`. Lesson: —.
 - **S-02: Staff can generate a QR code or link scoped to one party.** — Archived 2026-06-10 → `context/archive/2026-06-09-staff-issue-party-qr/`. Lesson: —.
+- **S-03: Staff can advance the queue, manually set ETA, and mark a party as table ready.** — Archived 2026-06-12 → `context/archive/2026-06-10-staff-advance-and-ready-queue/`. Lesson: —.
 
 <!-- /10x-archive appends here when a Change ID is archived -->
