@@ -35,7 +35,7 @@ Sequencing biased toward **speed to launch** (3 weeks, after-hours only): data a
 | S-01 | staff-add-party-to-queue | sign in and add a party to the queue | F-01 | FR-001, FR-002, US-01 | done |
 | S-02 | staff-issue-party-qr | issue a QR or link for one party | S-01 | FR-003, US-01 | done |
 | S-03 | staff-advance-and-ready-queue | advance the queue, set ETA, mark table ready | S-01 | FR-004, FR-005, FR-006, US-01 | done |
-| S-04 | staff-configure-guest-venue-info | configure optional info on the guest status page | F-01 | FR-007, FR-012 | proposed |
+| S-04 | staff-configure-guest-venue-info | configure optional info on the guest status page | F-01 | FR-007, FR-012 | done |
 | S-05 | guest-live-wait-status | open the status page via QR and see live status + ready | F-01, S-01, S-02, S-03, S-04 | FR-008–FR-013, US-01 | done |
 
 ## Streams
@@ -122,7 +122,7 @@ Codebase state as of **2026-05-31** (auto-research + user-confirmed). Foundation
 - **Blockers:** —
 - **Unknowns:** —
 - **Risk:** FR-012 can ship with empty defaults first; slice is small and parallel — does not block Stream A if the guest initially sees no venue info.
-- **Status:** proposed
+- **Status:** done
 
 ### S-05: Guest live wait status (north star)
 
@@ -167,5 +167,6 @@ Codebase state as of **2026-05-31** (auto-research + user-confirmed). Foundation
 - **S-02: Staff can generate a QR code or link scoped to one party.** — Archived 2026-06-10 → `context/archive/2026-06-09-staff-issue-party-qr/`. Lesson: —.
 - **S-03: Staff can advance the queue, manually set ETA, and mark a party as table ready.** — Archived 2026-06-12 → `context/archive/2026-06-10-staff-advance-and-ready-queue/`. Lesson: —.
 - **S-05: Guest can open the status page via QR/link without an account and see position, ETA, party confirmation, venue info, and table-ready state, with live updates when staff change queue state.** — Archived 2026-06-12 → `context/archive/2026-06-12-guest-live-wait-status/`. Lesson: —.
+- **S-04: Staff can set optional information shown on the guest status page (e.g. menu link, policies).** — Archived 2026-06-12 → `context/archive/2026-06-12-staff-configure-guest-venue-info/`. Lesson: —.
 
 <!-- /10x-archive appends here when a Change ID is archived -->
