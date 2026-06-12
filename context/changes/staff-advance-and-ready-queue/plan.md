@@ -399,10 +399,10 @@ No database migration required. F-01 schema and RLS are sufficient. Deploy is co
 
 #### Automated
 
-- [x] 3.1 `npx astro sync && npm run lint` passes
-- [x] 3.2 `npm run build` passes
+- [x] 3.1 `npx astro sync && npm run lint` passes — c1baaa5
+- [x] 3.2 `npm run build` passes — c1baaa5
 
 #### Manual
 
-- [x] 3.3 Call next, inline ETA, mark ready, and seat work end-to-end on dashboard
-- [x] 3.4 S-02 QR regression and guest RPC state verified
+- [x] 3.3 Call next, inline ETA, mark ready, and seat work end-to-end on dashboard — c1baaa5
+- [x] 3.4 S-02 QR regression and guest RPC state verified — c1baaa5
