@@ -57,6 +57,18 @@ export interface PartyListResponse {
   parties: Party[];
 }
 
+export interface UpdatePartyEtaInput {
+  eta_minutes: number | null;
+}
+
+export interface PartyMutationResponse {
+  party: Party;
+}
+
+export interface AdvanceQueueResponse {
+  party: Party;
+}
+
 export interface GuestTokenResponse {
   token: string;
   guest_url: string;
