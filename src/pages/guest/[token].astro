@@ -1,11 +1,12 @@
 ---
 import Layout from "@/layouts/Layout.astro";
+import GuestStatus from "@/components/guest/GuestStatus";
 import { createClient } from "@/lib/supabase";
 import type { GuestPartyView } from "@/types";
 
 export const prerender = false;
 
-const token = Astro.params.token?.trim();
+const token = Astro.params.token?.trim() ?? "";
 let guestView: GuestPartyView | null = null;
 let errorMessage: string | null = null;
 
@@ -28,38 +29,17 @@ if (!token) {
 
 <Layout title="Your table">
   <div class="bg-cosmic flex min-h-screen items-center justify-center p-4">
-    <div class="w-full max-w-sm rounded-2xl border border-white/10 bg-white/10 p-8 text-white backdrop-blur-xl">
-      {
-        errorMessage ? (
+    {
+      token ? (
+        <GuestStatus client:load token={token} initialView={guestView} initialError={errorMessage} />
+      ) : (
+        <div class="w-full max-w-sm rounded-2xl border border-white/10 bg-white/10 p-8 text-white backdrop-blur-xl">
           <div class="text-center">
             <h1 class="mb-3 text-xl font-semibold text-white">Link unavailable</h1>
             <p class="text-sm text-blue-100/80">{errorMessage}</p>
           </div>
-        ) : (
-          guestView && (
-            <div class="space-y-6 text-center">
-              <div>
-                <p class="text-sm text-blue-100/70">Welcome</p>
-                <h1 class="mt-1 bg-gradient-to-r from-blue-200 to-purple-200 bg-clip-text text-2xl font-bold text-transparent">
-                  {guestView.display_name}
-                </h1>
-                <p class="mt-2 text-sm text-blue-100/80">Party of {guestView.party_size}</p>
-              </div>
-
-              {guestView.position !== null && (
-                <div class="rounded-xl border border-white/10 bg-white/5 px-4 py-3">
-                  <p class="text-xs tracking-wide text-blue-100/60 uppercase">Queue position</p>
-                  <p class="mt-1 text-3xl font-bold text-white">#{guestView.position}</p>
-                </div>
-              )}
-
-              <p class="rounded-lg border border-purple-400/20 bg-purple-500/10 px-4 py-3 text-sm text-purple-100">
-                Live wait status is coming soon. Please stay nearby — we will update you when your table is ready.
-              </p>
-            </div>
-          )
-        )
-      }
-    </div>
+        </div>
+      )
+    }
   </div>
 </Layout>

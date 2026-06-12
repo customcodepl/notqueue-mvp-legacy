@@ -147,13 +147,13 @@ Build the React island that renders all guest-visible states from `GuestPartyVie
 
 #### Automated Verification:
 
-- `npx astro sync && npm run lint` passes
-- `npm run build` passes
+- [x] 2.1 `npx astro sync && npm run lint` passes
+- [x] 2.2 `npm run build` passes
 
 #### Manual Verification:
 
-- Component renders waiting state with seed data shape (can verify in Phase 3)
-- Ready and seated layouts visually distinct from waiting
+- [ ] 2.3 Component renders waiting state with seed data shape (can verify in Phase 3)
+- [ ] 2.4 Ready and seated layouts visually distinct from waiting
 
 **Implementation Note**: After completing this phase and all automated verification passes, pause here for manual confirmation from the human that the manual testing was successful before proceeding to the next phase.
 
@@ -260,19 +260,19 @@ No database migration. Deploy requires adding `PUBLIC_SUPABASE_URL` and `PUBLIC_
 
 #### Automated
 
-- [x] 1.1 `npx astro sync && npm run lint` passes
-- [x] 1.2 `npm run build` passes with client and server Supabase env vars set
+- [x] 1.1 `npx astro sync && npm run lint` passes — c8df6ab
+- [x] 1.2 `npm run build` passes with client and server Supabase env vars set — c8df6ab
 
 #### Manual
 
-- [x] 1.3 RPC smoke via hook or guest page for valid and invalid tokens
+- [x] 1.3 RPC smoke via hook or guest page for valid and invalid tokens — c8df6ab
 
 ### Phase 2: Guest Status UI
 
 #### Automated
 
-- [ ] 2.1 `npx astro sync && npm run lint` passes
-- [ ] 2.2 `npm run build` passes
+- [x] 2.1 `npx astro sync && npm run lint` passes
+- [x] 2.2 `npm run build` passes
 
 #### Manual
 
@@ -282,8 +282,8 @@ No database migration. Deploy requires adding `PUBLIC_SUPABASE_URL` and `PUBLIC_
 
 #### Automated
 
-- [ ] 3.1 `npx astro sync && npm run lint` passes
-- [ ] 3.2 `npm run build` passes
+- [x] 3.1 `npx astro sync && npm run lint` passes
+- [x] 3.2 `npm run build` passes
 
 #### Manual
 
