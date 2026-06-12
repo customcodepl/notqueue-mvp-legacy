@@ -74,3 +74,12 @@ export interface GuestTokenResponse {
   token: string;
   guest_url: string;
 }
+
+export interface UpdateVenueSettingsInput {
+  menu_link: string | null;
+  info_text: string | null;
+}
+
+export interface VenueSettingsResponse {
+  settings: VenueSettings;
+}
