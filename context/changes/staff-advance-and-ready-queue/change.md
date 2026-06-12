@@ -1,7 +1,7 @@
 ---
 change_id: staff-advance-and-ready-queue
 title: Staff advance and ready queue (S-03)
-status: implemented
+status: impl_reviewed
 created: 2026-06-10
 updated: 2026-06-11
 ---
