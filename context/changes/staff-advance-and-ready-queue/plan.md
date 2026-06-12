@@ -387,22 +387,22 @@ No database migration required. F-01 schema and RLS are sufficient. Deploy is co
 
 #### Automated
 
-- [x] 2.1 `npx astro sync && npm run lint` passes
-- [x] 2.2 `npm run build` passes
+- [x] 2.1 `npx astro sync && npm run lint` passes — 3ec114f
+- [x] 2.2 `npm run build` passes — 3ec114f
 
 #### Manual
 
-- [x] 2.3 `GET /api/parties` returns waiting and ready sections correctly
-- [x] 2.4 Hook refresh reflects party movement between sections
+- [x] 2.3 `GET /api/parties` returns waiting and ready sections correctly — 3ec114f
+- [x] 2.4 Hook refresh reflects party movement between sections — 3ec114f
 
 ### Phase 3: Dashboard UI
 
 #### Automated
 
-- [ ] 3.1 `npx astro sync && npm run lint` passes
-- [ ] 3.2 `npm run build` passes
+- [x] 3.1 `npx astro sync && npm run lint` passes
+- [x] 3.2 `npm run build` passes
 
 #### Manual
 
-- [ ] 3.3 Call next, inline ETA, mark ready, and seat work end-to-end on dashboard
-- [ ] 3.4 S-02 QR regression and guest RPC state verified
+- [x] 3.3 Call next, inline ETA, mark ready, and seat work end-to-end on dashboard
+- [x] 3.4 S-02 QR regression and guest RPC state verified
