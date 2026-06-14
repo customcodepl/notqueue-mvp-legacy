@@ -1,7 +1,8 @@
 import type { APIRoute } from "astro";
 import { z } from "zod";
 import { guestUrlFromRequest, jsonResponse, requireStaffUser } from "@/lib/api";
-import { PartyNotFoundError, getActiveGuestToken, issueGuestToken } from "@/lib/services/guestTokens";
+import { InvalidPartyStateError, PartyNotFoundError } from "@/lib/services/parties";
+import { getActiveGuestToken, issueGuestToken } from "@/lib/services/guestTokens";
 import type { GuestTokenResponse } from "@/types";
 
 export const prerender = false;
@@ -58,6 +59,9 @@ export const POST: APIRoute = async (context) => {
   } catch (err) {
     if (err instanceof PartyNotFoundError) {
       return jsonResponse(404, { error: err.message });
+    }
+    if (err instanceof InvalidPartyStateError) {
+      return jsonResponse(409, { error: err.message });
     }
     return jsonResponse(500, { error: "Failed to issue guest token" });
   }

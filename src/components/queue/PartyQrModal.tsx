@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import QRCode from "react-qr-code";
 import { Copy, RefreshCw, X } from "lucide-react";
 import { ServerError } from "@/components/auth/ServerError";
@@ -14,15 +14,8 @@ interface PartyQrModalProps {
 }
 
 export default function PartyQrModal({ partyId, partyName, open, onClose }: PartyQrModalProps) {
-  const { data, loading, error, fetchActiveToken, issueToken } = useGuestToken(open ? partyId : null);
+  const { data, loading, error, issueToken } = useGuestToken(open ? partyId : null);
   const [copyMessage, setCopyMessage] = useState<string | null>(null);
-
-  useEffect(() => {
-    if (!open) {
-      return;
-    }
-    void fetchActiveToken();
-  }, [open, partyId, fetchActiveToken]);
 
   if (!open) {
     return null;

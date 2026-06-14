@@ -1,12 +1,6 @@
 import type { SupabaseClient } from "@supabase/supabase-js";
+import { InvalidPartyStateError, PartyNotFoundError } from "@/lib/services/parties";
 import type { GuestToken } from "@/types";
-
-export class PartyNotFoundError extends Error {
-  constructor() {
-    super("Party not found");
-    this.name = "PartyNotFoundError";
-  }
-}
 
 export function generateGuestToken(): string {
   const bytes = new Uint8Array(32);
@@ -48,25 +42,31 @@ export async function getActiveGuestToken(supabase: SupabaseClient, partyId: str
   return response.data as GuestToken;
 }
 
+function mapIssueGuestTokenError(error: { message?: string }): never {
+  const message = error.message ?? "";
+  if (message.includes("party not found")) {
+    throw new PartyNotFoundError();
+  }
+  if (message.includes("action not allowed")) {
+    throw new InvalidPartyStateError();
+  }
+  throw new Error(message || "Failed to issue guest token");
+}
+
 export async function issueGuestToken(supabase: SupabaseClient, partyId: string): Promise<GuestToken> {
-  await assertPartyExists(supabase, partyId);
-
-  const revokeResponse = await supabase
-    .from("guest_tokens")
-    .update({ revoked_at: new Date().toISOString() })
-    .eq("party_id", partyId)
-    .is("revoked_at", null);
-
-  if (revokeResponse.error) {
-    throw revokeResponse.error;
-  }
-
   const token = generateGuestToken();
-  const insertResponse = await supabase.from("guest_tokens").insert({ party_id: partyId, token }).select().single();
+  const response = await supabase.rpc("issue_guest_token", {
+    p_party_id: partyId,
+    p_token: token,
+  });
 
-  if (insertResponse.error) {
-    throw insertResponse.error;
+  if (response.error) {
+    mapIssueGuestTokenError(response.error);
   }
 
-  return insertResponse.data as GuestToken;
+  if (!response.data) {
+    throw new Error("issue_guest_token returned no data");
+  }
+
+  return response.data as GuestToken;
 }
