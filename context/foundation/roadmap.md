@@ -1,18 +1,19 @@
 ---
 project: NotQueue
 version: 1
-status: draft
+status: active
 created: 2026-05-31
-updated: 2026-06-12
+updated: 2026-06-25
 prd_version: 1
 main_goal: speed
 top_blocker: time
+mvp_v1_status: complete
 ---
 
 # Roadmap: NotQueue
 
-> Derived from `context/foundation/prd.md` (v1) + auto-researched codebase baseline.
-> Edit-in-place; archive when superseded.
+> Derived from `context/foundation/prd.md` (v1) + codebase baseline.
+> **MVP v1 complete** (2026-06-12) — all F-01 and S-01–S-05 slices archived. Use this doc for product context and v2 planning; active work starts with `/10x-new` + a new roadmap version when scope grows.
 > Slices below are listed in dependency order. The "At a glance" table is the index.
 
 ## Vision recap
@@ -23,9 +24,9 @@ Guests at a restaurant cannot see where they are in the waitlist for a table —
 
 **S-05: guest-live-wait-status** — After scanning the QR, the guest sees position, ETA, party details, venue info, and **live** status changes (including table ready) without logging in.
 
-> The **north star** is the smallest vertical slice whose delivery proves the core product hypothesis — here: US-01 and the success criterion "the guest sees authoritative status on their phone." We place it as early as prerequisites allow; everything else only matters if this works.
+> The **north star** is the smallest vertical slice whose delivery proves the core product hypothesis — here: US-01 and the success criterion "the guest sees authoritative status on their phone." Delivered 2026-06-12.
 
-Sequencing biased toward **speed to launch** (3 weeks, after-hours only): data and staff operations required for US-01 first, without expanding observability or SMS.
+MVP v1 was sequenced for **speed to launch** (3 weeks, after-hours): data and staff operations required for US-01 first, without expanding observability or SMS.
 
 ## At a glance
 
@@ -40,22 +41,22 @@ Sequencing biased toward **speed to launch** (3 weeks, after-hours only): data a
 
 ## Streams
 
-Navigation across parallel tracks; canonical order is in the dependency graph above.
+MVP v1 sequencing (all streams complete).
 
 | Stream | Theme | Chain | Note |
 |---|---|---|---|
-| A | Queue core (staff → guest) | `F-01` → `S-01` → `S-02` → `S-03` → `S-05` | Path to north star and speed-to-launch |
-| B | Venue configuration | `F-01` → `S-04` | Joins `S-05` (FR-012); parallel with `S-02`/`S-03` after `S-01` |
+| A | Queue core (staff → guest) | `F-01` → `S-01` → `S-02` → `S-03` → `S-05` | Path to north star — shipped |
+| B | Venue configuration | `F-01` → `S-04` | Joined `S-05` (FR-012); parallel with `S-02`/`S-03` after `S-01` |
 
 ## Baseline
 
-Codebase state as of **2026-05-31** (auto-research + user-confirmed). Foundations below do **not** re-scaffold what is already present.
+Codebase state as of **2026-06-25** (post–MVP v1).
 
-- **Frontend:** present — Astro 6, React 19, Tailwind 4, shadcn (`package.json`, `src/components/`)
-- **Backend / API:** partial — only `src/pages/api/auth/*`; no queue endpoints
-- **Data:** absent — no `supabase/migrations/`; only `supabase/config.toml`
-- **Auth:** present — Supabase SSR, `src/lib/supabase.ts`, `src/middleware.ts`, `/auth/*` pages, protected `/dashboard`
-- **Deploy / infra:** present — `@astrojs/cloudflare`, `wrangler.jsonc`, prod: https://notqueue.notqueue.workers.dev
+- **Frontend:** present — Astro 6, React 19, Tailwind 4, shadcn (`src/components/`, queue + guest UI)
+- **Backend / API:** present — auth (`src/pages/api/auth/*`) + queue (`src/pages/api/parties/*`, `src/pages/api/venue/settings.ts`)
+- **Data:** present — `supabase/migrations/` (queue schema, RLS, guest-token RPC)
+- **Auth:** present — Supabase SSR email/password, `src/lib/supabase.ts`, `src/middleware.ts`, `/auth/*`, protected `/dashboard`
+- **Deploy / infra:** present — `@astrojs/cloudflare`, `wrangler.jsonc`, Workers Builds; prod: https://notqueue.notqueue.workers.dev
 - **Observability:** partial — Wrangler `observability`; no Sentry/OTel in code
 
 ## Foundations
@@ -69,8 +70,7 @@ Codebase state as of **2026-05-31** (auto-research + user-confirmed). Foundation
 - **Prerequisites:** —
 - **Parallel with:** —
 - **Blockers:** —
-- **Unknowns:**
-  - Guest token as separate table vs. signed URL — Owner: team. Block: yes (blocks planning S-05).
+- **Unknowns:** —
 - **Risk:** Without this there are no vertical product slices; under `speed` we do not expand the model beyond must-have FRs.
 - **Status:** done
 
@@ -109,7 +109,7 @@ Codebase state as of **2026-05-31** (auto-research + user-confirmed). Foundation
 - **Parallel with:** S-04
 - **Blockers:** —
 - **Unknowns:** —
-- **Risk:** US-01 requires live updates when staff act — this slice supplies events for Realtime.
+- **Risk:** US-01 requires live updates when staff act — this slice supplies events for guest polling.
 - **Status:** done
 
 ### S-04: Staff configure guest venue info
@@ -132,25 +132,26 @@ Codebase state as of **2026-05-31** (auto-research + user-confirmed). Foundation
 - **Prerequisites:** F-01, S-01, S-02, S-03, S-04
 - **Parallel with:** —
 - **Blockers:** —
-- **Unknowns:**
-  - Supabase Realtime vs. polling fallback on weak restaurant Wi‑Fi — Owner: team. Block: no.
+- **Unknowns:** —
 - **Risk:** This validates the product hypothesis; it depends on F-01 and a minimal staff path (S-01–S-03).
 - **Status:** done
 
-## Backlog Handoff
+## MVP v1 archive index
 
-| Roadmap ID | Change ID | Suggested issue title | Ready for `/10x-plan` | Notes |
-|---|---|---|---|---|
-| F-01 | queue-schema-and-guest-tokens | Supabase: queue schema, guest tokens, RLS | yes | Unblocks the full path to the north star |
-| S-01 | staff-add-party-to-queue | Staff: add party to queue | no | Requires F-01 |
-| S-02 | staff-issue-party-qr | Staff: QR / link for party | no | Requires S-01 |
-| S-03 | staff-advance-and-ready-queue | Staff: queue advance, ETA, ready | no | Requires S-01 |
-| S-04 | staff-configure-guest-venue-info | Staff: venue info on guest page | no | Requires F-01 |
-| S-05 | guest-live-wait-status | Guest: live queue status via QR | no | Requires F-01 + S-01–S-04 |
+All slices planned, implemented, and archived. Decisions captured in `context/foundation/lessons.md`.
+
+| Roadmap ID | Change ID | Archive |
+|---|---|---|
+| F-01 | queue-schema-and-guest-tokens | `context/archive/2026-06-09-queue-schema-and-guest-tokens/` |
+| S-01 | staff-add-party-to-queue | `context/archive/2026-06-09-staff-add-party-to-queue/` |
+| S-02 | staff-issue-party-qr | `context/archive/2026-06-09-staff-issue-party-qr/` |
+| S-03 | staff-advance-and-ready-queue | `context/archive/2026-06-10-staff-advance-and-ready-queue/` |
+| S-04 | staff-configure-guest-venue-info | `context/archive/2026-06-12-staff-configure-guest-venue-info/` |
+| S-05 | guest-live-wait-status | `context/archive/2026-06-12-guest-live-wait-status/` |
 
 ## Open Roadmap Questions
 
-1. **Staff sign-in mechanism (email/password vs passwordless)** — Owner: user. Block: roadmap-wide (does not block slices; PRD: Block: no). Resolve during auth implementation, not slice ordering.
+(none — MVP v1 scope fully delivered. See `lessons.md` for resolved design calls; `## Parked` for deferred v2 items.)
 
 ## Parked
 
@@ -159,14 +160,15 @@ Codebase state as of **2026-05-31** (auto-research + user-confirmed). Foundation
 - **Reservations / booking** — Why parked: PRD §Non-Goals.
 - **In-queue ordering and payments** — Why parked: PRD §Non-Goals.
 - **Expanded observability (Sentry, alerts)** — Why parked: `speed` + partial baseline is enough for MVP; keep infra light.
+- **Supabase Realtime for guest updates** — Why parked: MVP shipped with polling (`useGuestPartyView`); revisit if restaurant Wi‑Fi latency becomes a problem.
 
 ## Done
 
-- **F-01: (foundation) Supabase has queue tables (party, position, ETA, ready), venue settings, and guest tokens with RLS: staff manage; guests read only their party.** — Archived 2026-06-10 → `context/archive/2026-06-09-queue-schema-and-guest-tokens/`. Lesson: —.
+- **F-01: (foundation) Supabase has queue tables (party, position, ETA, ready), venue settings, and guest tokens with RLS: staff manage; guests read only their party.** — Archived 2026-06-10 → `context/archive/2026-06-09-queue-schema-and-guest-tokens/`. Lesson: guest token = opaque row in `guest_tokens`, not signed URL — see `lessons.md`.
 - **S-01: Staff can sign in and add a waiting party (e.g. name, party size) to the restaurant queue.** — Archived 2026-06-10 → `context/archive/2026-06-09-staff-add-party-to-queue/`. Lesson: —.
-- **S-02: Staff can generate a QR code or link scoped to one party.** — Archived 2026-06-10 → `context/archive/2026-06-09-staff-issue-party-qr/`. Lesson: —.
+- **S-02: Staff can generate a QR code or link scoped to one party.** — Archived 2026-06-10 → `context/archive/2026-06-09-staff-issue-party-qr/`. Lesson: atomic reissue via Postgres RPC — see `lessons.md`.
 - **S-03: Staff can advance the queue, manually set ETA, and mark a party as table ready.** — Archived 2026-06-12 → `context/archive/2026-06-10-staff-advance-and-ready-queue/`. Lesson: —.
-- **S-05: Guest can open the status page via QR/link without an account and see position, ETA, party confirmation, venue info, and table-ready state, with live updates when staff change queue state.** — Archived 2026-06-12 → `context/archive/2026-06-12-guest-live-wait-status/`. Lesson: —.
+- **S-05: Guest can open the status page via QR/link without an account and see position, ETA, party confirmation, venue info, and table-ready state, with live updates when staff change queue state.** — Archived 2026-06-12 → `context/archive/2026-06-12-guest-live-wait-status/`. Lesson: polling over Realtime for MVP — see `lessons.md`.
 - **S-04: Staff can set optional information shown on the guest status page (e.g. menu link, policies).** — Archived 2026-06-12 → `context/archive/2026-06-12-staff-configure-guest-venue-info/`. Lesson: —.
 
 <!-- /10x-archive appends here when a Change ID is archived -->

@@ -2,7 +2,7 @@
 project: NotQueue
 context_type: greenfield
 created: 2026-05-30
-updated: 2026-05-30
+updated: 2026-06-25
 product_type: web-app
 target_scale:
   users: small
@@ -11,8 +11,9 @@ timeline_budget:
   hard_deadline: null
   after_hours_only: true
 checkpoint:
-  current_phase: 8
-  phases_completed: [1, 2, 3, 4, 5, 6, 7]
+  current_phase: complete
+  phases_completed: [1, 2, 3, 4, 5, 6, 7, 8]
+  mvp_v1_shipped: 2026-06-12
   gray_areas_resolved:
     - topic: pain category
       decision: workflow friction
@@ -57,7 +58,7 @@ NotQueue gives each party a waiter-issued QR that opens a self-service status pa
 
 **Staff (front of house)**
 
-- **Staff login** (email + password or passwordless — mechanism TBD downstream).
+- **Staff login** — Supabase email + password (shipped MVP v1).
 - **Roles for MVP:** single FOH permission tier — host and waiter can perform the same queue operations (add party, advance queue, issue/reissue QR). No separate guest vs admin split beyond guest read-only vs staff manage.
 
 **Separation**

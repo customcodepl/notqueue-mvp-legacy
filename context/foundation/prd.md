@@ -1,8 +1,9 @@
 ---
 project: NotQueue
 version: 1
-status: draft
+status: active
 created: 2026-05-30
+updated: 2026-06-25
 context_type: greenfield
 product_type: web-app
 target_scale:
@@ -140,6 +141,6 @@ Staff actions (add party, advance queue, set ETA, mark ready) are the source of 
 - **Avoid: multi-location chain / franchise admin** — MVP targets a single restaurant (or handful), not enterprise multi-site rollout.
 - **Avoid: in-queue ordering or payments** — Guest page is status + venue info only; no menu ordering or checkout in v1.
 
-## Open Questions
+## Resolved Questions
 
-1. **Staff sign-in mechanism (email/password vs passwordless)** — Owner: user. Shape-notes record staff login as required; specific sign-in method not yet chosen. Block: no (product boundary is defined; resolve during tech-stack selection).
+1. **Staff sign-in mechanism** — Resolved 2026-06-09: Supabase email + password for MVP. See `context/foundation/lessons.md`.
