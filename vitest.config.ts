@@ -8,8 +8,8 @@ export default getViteConfig(
       include: ["src/**/*.test.ts"],
       environment: "node",
       environmentMatchGlobs: [
-        ["src/components/**", "jsdom"],
-        ["src/pages/api/**", "node"],
+        ["src/components/**/*.test.ts", "jsdom"],
+        ["src/pages/api/**/*.test.ts", "node"],
       ],
     },
   },

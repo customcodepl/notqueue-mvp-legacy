@@ -294,20 +294,20 @@ No schema migration required unless Phase 4 adds a second seed party — prefer 
 
 #### Automated
 
-- [x] 1.1 `npm test` exits 0
-- [x] 1.2 `npx astro sync && npm run lint` exits 0
-- [x] 1.3 `vitest.config.ts` uses `getViteConfig` from `astro/config`
+- [x] 1.1 `npm test` exits 0 — 3d76c2e
+- [x] 1.2 `npx astro sync && npm run lint` exits 0 — 3d76c2e
+- [x] 1.3 `vitest.config.ts` uses `getViteConfig` from `astro/config` — 3d76c2e
 
 #### Manual
 
-- [x] 1.4 `npm test` runs on a clean install after `npm ci` without Docker
+- [x] 1.4 `npm test` runs on a clean install after `npm ci` without Docker — 3d76c2e
 
 ### Phase 2: Guest poll classification (Risk #1)
 
 #### Automated
 
-- [ ] 2.1 `npm test` includes the four hook cases and passes
-- [ ] 2.2 `npm run lint` exits 0
+- [x] 2.1 `npm test` includes the four hook cases and passes
+- [x] 2.2 `npm run lint` exits 0
 
 ### Phase 3: Staff unauth table (Risk #5)
 
