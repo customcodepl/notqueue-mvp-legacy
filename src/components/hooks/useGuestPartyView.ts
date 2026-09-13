@@ -6,7 +6,12 @@ const POLL_INTERVAL_MS = 30_000;
 const INVALID_LINK_MESSAGE = "This link is invalid or has expired.";
 const UNAVAILABLE_MESSAGE = "Service is temporarily unavailable.";
 
-export function useGuestPartyView(token: string, initialData: GuestPartyView | null = null) {
+export function useGuestPartyView(
+  token: string,
+  initialData: GuestPartyView | null = null,
+  supabaseUrl?: string,
+  supabaseAnonKey?: string,
+) {
   const [data, setData] = useState<GuestPartyView | null>(initialData);
   const [loading, setLoading] = useState(initialData === null);
   const [error, setError] = useState<string | null>(null);
@@ -43,11 +48,13 @@ export function useGuestPartyView(token: string, initialData: GuestPartyView | n
         return;
       }
 
-      const supabase = createBrowserClient();
+      const supabase = createBrowserClient({ url: supabaseUrl, anonKey: supabaseAnonKey });
       if (!supabase) {
         pollingStoppedRef.current = true;
         clearPolling();
-        setError(UNAVAILABLE_MESSAGE);
+        if (!initialData) {
+          setError(UNAVAILABLE_MESSAGE);
+        }
         setLoading(false);
         return;
       }
@@ -88,7 +95,7 @@ export function useGuestPartyView(token: string, initialData: GuestPartyView | n
       clearPolling();
       document.removeEventListener("visibilitychange", handleVisibilityChange);
     };
-  }, [clearPolling, startPolling, token]);
+  }, [clearPolling, initialData, startPolling, supabaseAnonKey, supabaseUrl, token]);
 
   const refresh = useCallback(async () => {
     if (loadViewRef.current) {

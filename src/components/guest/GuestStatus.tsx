@@ -8,6 +8,8 @@ interface GuestStatusProps {
   token: string;
   initialView: GuestPartyView | null;
   initialError?: string | null;
+  supabaseUrl?: string;
+  supabaseAnonKey?: string;
 }
 
 function GuestCard({ children, className }: { children: ReactNode; className?: string }) {
@@ -162,8 +164,14 @@ function SeatedView({ view }: { view: GuestPartyView }) {
   );
 }
 
-export default function GuestStatus({ token, initialView, initialError = null }: GuestStatusProps) {
-  const { data, loading, error } = useGuestPartyView(token, initialView);
+export default function GuestStatus({
+  token,
+  initialView,
+  initialError = null,
+  supabaseUrl,
+  supabaseAnonKey,
+}: GuestStatusProps) {
+  const { data, loading, error } = useGuestPartyView(token, initialView, supabaseUrl, supabaseAnonKey);
 
   const view = data ?? initialView;
   const displayError = error ?? (view ? null : initialError);
