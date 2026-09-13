@@ -4,12 +4,8 @@ import GuestStatus from "@/components/guest/GuestStatus";
 import { createClient } from "@/lib/supabase";
 import type { GuestPartyView } from "@/types";
 import { PUBLIC_SUPABASE_ANON_KEY, PUBLIC_SUPABASE_URL } from "astro:env/client";
-import { SUPABASE_KEY, SUPABASE_URL } from "astro:env/server";
 
 export const prerender = false;
-
-const clientSupabaseUrl = PUBLIC_SUPABASE_URL ?? SUPABASE_URL;
-const clientSupabaseAnonKey = PUBLIC_SUPABASE_ANON_KEY ?? SUPABASE_KEY;
 
 const token = Astro.params.token?.trim() ?? "";
 let guestView: GuestPartyView | null = null;
@@ -41,8 +37,8 @@ if (!token) {
           token={token}
           initialView={guestView}
           initialError={errorMessage}
-          supabaseUrl={clientSupabaseUrl}
-          supabaseAnonKey={clientSupabaseAnonKey}
+          supabaseUrl={PUBLIC_SUPABASE_URL}
+          supabaseAnonKey={PUBLIC_SUPABASE_ANON_KEY}
         />
       ) : (
         <div class="w-full max-w-sm rounded-2xl border border-white/10 bg-white/10 p-8 text-white backdrop-blur-xl">

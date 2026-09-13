@@ -78,14 +78,14 @@ plus the MCP/tools actually exposed in the current session. If a useful docs
 or search MCP such as Context7 or Exa.ai is not available, say that instead
 of assuming access.
 
-| Layer                | Tool                                          | Version                | Notes                                                                                          |
-| -------------------- | --------------------------------------------- | ---------------------- | ---------------------------------------------------------------------------------------------- |
-| unit + integration   | Vitest                                        | none yet — see Phase 1 | Astro docs: `getViteConfig()` from `astro/config`; Vitest 4 needs Node ≥22.12 (project: 22.14) |
-| API mocking          | none yet — see Phase 1                        | —                      | Mock only at the network edge (Supabase HTTP), never internal modules                          |
-| e2e                  | none — deferred                               | —                      | Interview Q5: no full dashboard e2e/visual on this rollout                                     |
-| accessibility        | none yet                                      | —                      | Not a named phase; do not gate on it                                                           |
-| SQL smoke            | `supabase/tests/rls_smoke.sql`                | existing               | Manual; not wired to npm/CI                                                                    |
-| (optional) AI-native | Playwright MCP / vision — checked: 2026-09-13 | n/a                    | Do not use: Q5 rejected visual e2e; browser MCP is session tooling, not a CI layer             |
+| Layer                | Tool                                          | Version  | Notes                                                                                                                        |
+| -------------------- | --------------------------------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| unit + integration   | Vitest                                        | 5        | `getViteConfig()` from `astro/config` with `configFile: false` so the Cloudflare adapter is not loaded; jsdom for hook tests |
+| API mocking          | Vitest `vi.mock`                              | 5        | Mock only at the network edge (Supabase client), never internal modules                                                      |
+| e2e                  | none — deferred                               | —        | Interview Q5: no full dashboard e2e/visual on this rollout                                                                   |
+| accessibility        | none yet                                      | —        | Not a named phase; do not gate on it                                                                                         |
+| SQL smoke            | `supabase/tests/rls_smoke.sql` + Vitest       | existing | Real anon RLS/RPC when local Supabase is up (`guest-privacy.rls.test.ts`); otherwise skipped                                 |
+| (optional) AI-native | Playwright MCP / vision — checked: 2026-09-13 | n/a      | Do not use: Q5 rejected visual e2e; browser MCP is session tooling, not a CI layer                                           |
 
 **Stack grounding tools (current session):**
 
@@ -94,7 +94,7 @@ of assuming access.
 - Runtime/browser: cursor-ide-browser — possible manual verify, not a test runner; checked: 2026-09-13
 - Provider/platform: GitHub/Cloudflare/Supabase MCP — not available in current session; CI gate uses GitHub Actions already in-repo; checked: 2026-09-13
 
-Test-base profile at plan write: **`none`** (no runner config, zero `*.test.*` files).
+Test-base profile at plan write: **`classic`** (Vitest + colocated `src/**/*.test.ts`; CI still lint + build until §3 Phase 3).
 
 ## 5. Quality Gates
 
@@ -159,9 +159,8 @@ local-only (`supabase/seed.sql`). Reissue/revoke races wait for §3 Phase 2.
   Worker plaintext is `503` / guest “unavailable”, not unauthorized.
 - **Null client vs RPC.** A missing browser client must not clobber SSR
   `initialData`. RPC error or null data is invalid/expired, not
-  unavailable. Hook tests already encode this; GuestStatus still has
-  working-tree wiring to pass `PUBLIC_*` (or server fallback) into the
-  island.
+  unavailable. The guest island receives only `PUBLIC_SUPABASE_*` (never
+  the server secret).
 
 ## 7. What We Deliberately Don't Test
 

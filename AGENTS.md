@@ -26,7 +26,7 @@ Import via `@/*` → `./src/*` per @tsconfig.json.
 
 - `npm run dev` — local dev (Cloudflare workerd runtime)
 - `npm run build` / `npm run preview` — production build and preview
-- `npm test` / `npm run test:watch` — Vitest (`src/**/*.test.ts`)
+- `npm test` / `npm run test:watch` — Vitest (`src/**/*.test.ts`). `vitest.config.ts` uses `getViteConfig` with `configFile: false` so the Cloudflare adapter is not loaded.
 - `npm run lint` / `npm run lint:fix` / `npm run format` — ESLint (type-checked) and Prettier
 - `npx astro sync` — regenerate Astro types (CI runs this before lint)
 - `npm run deploy` — build + `wrangler deploy`; prod: https://notqueue.notqueue.workers.dev; auto-deploy on `main` via Workers Builds — @docs/DEPLOY.md

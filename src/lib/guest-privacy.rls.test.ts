@@ -15,7 +15,30 @@ function envValue(pattern: RegExp, text: string): string | undefined {
   return match?.replaceAll(/^["']|["']$/g, "");
 }
 
+function isLoopbackSupabaseUrl(url: string): boolean {
+  try {
+    const { hostname } = new URL(url);
+    return hostname === "127.0.0.1" || hostname === "localhost" || hostname === "::1";
+  } catch {
+    return false;
+  }
+}
+
+function credsFromProcessEnv(): { url: string; anonKey: string } | null {
+  const url = process.env.SUPABASE_URL;
+  const anonKey = process.env.SUPABASE_ANON_KEY ?? process.env.PUBLIC_SUPABASE_ANON_KEY;
+  if (!url || !anonKey || !isLoopbackSupabaseUrl(url)) {
+    return null;
+  }
+  return { url, anonKey };
+}
+
 async function probeLocalSupabase(): Promise<{ url: string; anonKey: string } | null> {
+  const fromEnv = credsFromProcessEnv();
+  if (fromEnv) {
+    return fromEnv;
+  }
+
   try {
     const { stdout } = await execFileAsync("npx", ["supabase", "status", "-o", "env"], {
       timeout: 15_000,
@@ -23,10 +46,7 @@ async function probeLocalSupabase(): Promise<{ url: string; anonKey: string } | 
     });
     const url = envValue(URL_ENV, stdout);
     const anonKey = envValue(ANON_ENV, stdout);
-    if (!url || !anonKey) {
-      return null;
-    }
-    if (!url.includes("127.0.0.1") && !url.includes("localhost")) {
+    if (!url || !anonKey || !isLoopbackSupabaseUrl(url)) {
       return null;
     }
     return { url, anonKey };

@@ -1,8 +1,9 @@
 -- Assertive RLS smoke (run after seed: npx supabase db reset)
 -- Usage: npx supabase db query --file supabase/tests/rls_smoke.sql
 
--- (a) Anon cannot list parties without guest context
 SET ROLE anon;
+
+-- (a) Anon cannot list parties without guest context
 DO $$
 DECLARE
   party_count integer;
@@ -12,7 +13,6 @@ BEGIN
     RAISE EXCEPTION 'anon party count expected 0, got %', party_count;
   END IF;
 END $$;
-RESET ROLE;
 
 -- (b) Guest RPC returns only the seeded party
 DO $$
@@ -39,3 +39,5 @@ EXCEPTION
       RAISE;
     END IF;
 END $$;
+
+RESET ROLE;
