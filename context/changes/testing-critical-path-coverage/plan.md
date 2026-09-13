@@ -332,9 +332,9 @@ No schema migration required unless Phase 4 adds a second seed party — prefer 
 
 #### Automated
 
-- [x] 5.1 Prettier/format check on `context/foundation/test-plan.md` succeeds
-- [x] 5.2 §6 TBD placeholders for 6.1/6.2/6.4/6.5 are gone
+- [x] 5.1 Prettier/format check on `context/foundation/test-plan.md` succeeds — c77cfce
+- [x] 5.2 §6 TBD placeholders for 6.1/6.2/6.4/6.5 are gone — c77cfce
 
 #### Manual
 
-- [x] 5.3 Skim §2 row #1 and §6 for contributor usability
+- [x] 5.3 Skim §2 row #1 and §6 for contributor usability — c77cfce
