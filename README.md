@@ -1,3 +1,8 @@
+Aplikacja do zarządzania kolejkami w restauracjach, czy np. w warsztacie samochodowym.
+
+https://github.com/user-attachments/assets/6115a1a7-5e44-4af1-8bc3-bc14bb52bf9f
+
+
 https://notqueue.notqueue.workers.dev/dashboard
 
 Login: mmaciorowskicc@gmail.com, Hasło: 1234
