@@ -1,3 +1,10 @@
+https://notqueue.notqueue.workers.dev/dashboard
+
+Login: mmaciorowskicc@gmail.com, Hasło: 1234
+
+
+
+
 # 10x Astro Starter
 
 ![](./public/template.png)
