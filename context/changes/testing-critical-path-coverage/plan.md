@@ -320,21 +320,21 @@ No schema migration required unless Phase 4 adds a second seed party — prefer 
 
 #### Automated
 
-- [x] 4.1 With Docker + `npx supabase start` + `db reset`, privacy tests run and pass
-- [x] 4.2 Without DB, `npm test` still exits 0 and reports skipped RLS tests
-- [x] 4.3 `npm run lint` exits 0
+- [x] 4.1 With Docker + `npx supabase start` + `db reset`, privacy tests run and pass — 50cdb62
+- [x] 4.2 Without DB, `npm test` still exits 0 and reports skipped RLS tests — 50cdb62
+- [x] 4.3 `npm run lint` exits 0 — 50cdb62
 
 #### Manual
 
-- [x] 4.4 On a machine with Docker, RLS cases run (not skip) after `npx supabase db reset`
+- [x] 4.4 On a machine with Docker, RLS cases run (not skip) after `npx supabase db reset` — 50cdb62
 
 ### Phase 5: Cookbook and test-plan backport
 
 #### Automated
 
-- [ ] 5.1 Prettier/format check on `context/foundation/test-plan.md` succeeds
-- [ ] 5.2 §6 TBD placeholders for 6.1/6.2/6.4/6.5 are gone
+- [x] 5.1 Prettier/format check on `context/foundation/test-plan.md` succeeds
+- [x] 5.2 §6 TBD placeholders for 6.1/6.2/6.4/6.5 are gone
 
 #### Manual
 
-- [ ] 5.3 Skim §2 row #1 and §6 for contributor usability
+- [x] 5.3 Skim §2 row #1 and §6 for contributor usability
