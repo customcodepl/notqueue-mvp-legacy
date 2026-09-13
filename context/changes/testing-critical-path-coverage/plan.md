@@ -306,15 +306,15 @@ No schema migration required unless Phase 4 adds a second seed party — prefer 
 
 #### Automated
 
-- [x] 2.1 `npm test` includes the four hook cases and passes
-- [x] 2.2 `npm run lint` exits 0
+- [x] 2.1 `npm test` includes the four hook cases and passes — a01354b
+- [x] 2.2 `npm run lint` exits 0 — a01354b
 
 ### Phase 3: Staff unauth table (Risk #5)
 
 #### Automated
 
-- [ ] 3.1 `npm test` fails if any listed handler returns non-401 for the stubbed-unauth context
-- [ ] 3.2 `npm run lint` exits 0
+- [x] 3.1 `npm test` fails if any listed handler returns non-401 for the stubbed-unauth context
+- [x] 3.2 `npm run lint` exits 0
 
 ### Phase 4: Guest privacy SQL (Risk #2)
 
