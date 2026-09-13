@@ -2,10 +2,12 @@ import { createBrowserClient as createSupabaseBrowserClient } from "@supabase/ss
 import type { SupabaseClient } from "@supabase/supabase-js";
 import { PUBLIC_SUPABASE_ANON_KEY, PUBLIC_SUPABASE_URL } from "astro:env/client";
 
-export function createBrowserClient(): SupabaseClient | null {
-  if (!PUBLIC_SUPABASE_URL || !PUBLIC_SUPABASE_ANON_KEY) {
+export function createBrowserClient(options?: { url?: string; anonKey?: string }): SupabaseClient | null {
+  const url = options?.url ?? PUBLIC_SUPABASE_URL;
+  const anonKey = options?.anonKey ?? PUBLIC_SUPABASE_ANON_KEY;
+  if (!url || !anonKey) {
     return null;
   }
 
-  return createSupabaseBrowserClient(PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY);
+  return createSupabaseBrowserClient(url, anonKey);
 }

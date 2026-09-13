@@ -26,11 +26,12 @@ Import via `@/*` → `./src/*` per @tsconfig.json.
 
 - `npm run dev` — local dev (Cloudflare workerd runtime)
 - `npm run build` / `npm run preview` — production build and preview
+- `npm test` / `npm run test:watch` — Vitest (`src/**/*.test.ts`)
 - `npm run lint` / `npm run lint:fix` / `npm run format` — ESLint (type-checked) and Prettier
 - `npx astro sync` — regenerate Astro types (CI runs this before lint)
 - `npm run deploy` — build + `wrangler deploy`; prod: https://notqueue.notqueue.workers.dev; auto-deploy on `main` via Workers Builds — @docs/DEPLOY.md
 
-Node **v22.14.0** per @.nvmrc. No automated test suite in-repo; verify with lint + build.
+Node **v22.14.0** per @.nvmrc. Verify with `npm test`, lint, and build.
 
 ## Coding Style
 
