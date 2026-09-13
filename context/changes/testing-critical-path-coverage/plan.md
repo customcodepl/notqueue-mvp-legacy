@@ -313,20 +313,20 @@ No schema migration required unless Phase 4 adds a second seed party — prefer 
 
 #### Automated
 
-- [x] 3.1 `npm test` fails if any listed handler returns non-401 for the stubbed-unauth context
-- [x] 3.2 `npm run lint` exits 0
+- [x] 3.1 `npm test` fails if any listed handler returns non-401 for the stubbed-unauth context — 1c6b5d6
+- [x] 3.2 `npm run lint` exits 0 — 1c6b5d6
 
 ### Phase 4: Guest privacy SQL (Risk #2)
 
 #### Automated
 
-- [ ] 4.1 With Docker + `npx supabase start` + `db reset`, privacy tests run and pass
-- [ ] 4.2 Without DB, `npm test` still exits 0 and reports skipped RLS tests
-- [ ] 4.3 `npm run lint` exits 0
+- [x] 4.1 With Docker + `npx supabase start` + `db reset`, privacy tests run and pass
+- [x] 4.2 Without DB, `npm test` still exits 0 and reports skipped RLS tests
+- [x] 4.3 `npm run lint` exits 0
 
 #### Manual
 
-- [ ] 4.4 On a machine with Docker, RLS cases run (not skip) after `npx supabase db reset`
+- [x] 4.4 On a machine with Docker, RLS cases run (not skip) after `npx supabase db reset`
 
 ### Phase 5: Cookbook and test-plan backport
 
